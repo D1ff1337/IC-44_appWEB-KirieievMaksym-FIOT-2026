@@ -3,63 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BookNest</title>
-  <link rel="stylesheet" href="style.css">
+  <title>BookNest — онлайн-бібліотека</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/menu.js" defer></script>
 </head>
 <body>
   <header id="main-header">
-    <h1>BookNest</h1>
-    <nav>
+    <a class="logo" href="index.html" aria-label="BookNest — на головну">
+      <img src="images/logo.svg" alt="" width="40" height="40">
+      <span>BookNest</span>
+    </a>
+    <button class="burger" id="burger" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="menu" aria-label="Головне меню">
       <a href="#catalog">Каталог</a>
       <a href="#rules">Як взяти книгу</a>
       <a href="#register">Реєстрація</a>
       <a href="about.html">Опис предметної галузі та бізнес-логіки</a>
     </nav>
   </header>
+
   <main>
     <section id="hero">
       <img src="images/hero.svg" alt="Полиця з книгами BookNest" width="900" height="320">
       <h2>Ласкаво просимо до BookNest</h2>
       <p>Шукайте, бронюйте та читайте книги онлайн.</p>
     </section>
+
+    <section id="features">
+      <h2>Чому BookNest</h2>
+      <div class="features">
+        <article class="feature"><span class="ico">🔍</span><h3>Швидкий пошук</h3><p>Знаходьте книги за назвою, автором чи категорією.</p></article>
+        <article class="feature"><span class="ico">📌</span><h3>Бронювання</h3><p>Резервуйте книгу онлайн за кілька кліків.</p></article>
+        <article class="feature"><span class="ico">📖</span><h3>Читання онлайн</h3><p>Читайте електронні версії з будь-якого пристрою.</p></article>
+        <article class="feature"><span class="ico">🗂️</span><h3>Облік видач</h3><p>Бібліотекар бачить усі видачі та повернення.</p></article>
+      </div>
+    </section>
+
     <section id="catalog">
       <h2>Популярні книги</h2>
-      <table>
-        <tr><th>Обкладинка</th><th>Назва</th><th>Автор</th><th>Наявність</th></tr>
-        <tr><td><img src="images/book1.svg" alt="Кобзар" width="50"></td><td>Кобзар</td><td>Тарас Шевченко</td><td>Є</td></tr>
-        <tr><td><img src="images/book2.svg" alt="Чистий код" width="50"></td><td>Чистий код</td><td>Роберт Мартін</td><td>Є</td></tr>
-        <tr><td><img src="images/book3.svg" alt="HTML і CSS" width="50"></td><td>HTML і CSS</td><td>Джон Дакетт</td><td>Видана</td></tr>
-      </table>
+      <div class="cards">
+        <article class="card">
+          <img src="images/book1.svg" alt="Кобзар" width="120">
+          <h3>Кобзар</h3>
+          <p class="author">Тарас Шевченко</p>
+          <span class="status ok">Є в наявності</span>
+        </article>
+        <article class="card">
+          <img src="images/book2.svg" alt="Чистий код" width="120">
+          <h3>Чистий код</h3>
+          <p class="author">Роберт Мартін</p>
+          <span class="status ok">Є в наявності</span>
+        </article>
+        <article class="card">
+          <img src="images/book3.svg" alt="HTML і CSS" width="120">
+          <h3>HTML і CSS</h3>
+          <p class="author">Джон Дакетт</p>
+          <span class="status no">Видана</span>
+        </article>
+      </div>
     </section>
+
     <section id="rules">
       <h2>Як взяти книгу</h2>
-      <ol>
-        <li>Зареєструйтесь.</li>
-        <li>Знайдіть книгу в каталозі.</li>
-        <li>Забронюйте її.</li>
-      </ol>
-      <h3>Категорії</h3>
-      <ul>
-        <li>Художня література
+      <div class="two-col">
+        <div>
+          <ol>
+            <li>Зареєструйтесь.</li>
+            <li>Знайдіть книгу в каталозі.</li>
+            <li>Забронюйте її.</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Категорії</h3>
           <ul>
-            <li>Класика
-              <ul><li>Українська</li><li>Зарубіжна</li></ul>
+            <li>Художня література
+              <ul>
+                <li>Класика
+                  <ul><li>Українська</li><li>Зарубіжна</li></ul>
+                </li>
+              </ul>
             </li>
+            <li>IT</li>
           </ul>
-        </li>
-        <li>IT</li>
-      </ul>
+        </div>
+      </div>
     </section>
+
     <section id="register">
       <h2>Реєстрація читача</h2>
       <form action="#" method="post">
         <label>Ім'я: <input type="text" name="name" required></label>
         <label>Email: <input type="email" name="email" required></label>
-        <label><input type="checkbox" name="news"> Отримувати новини</label>
+        <label class="check"><input type="checkbox" name="news"> Отримувати новини</label>
         <button type="submit" class="btn">Зареєструватися</button>
       </form>
     </section>
   </main>
-  <footer>© 2026 BookNest. Кірєєв Максим, ІС-44</footer>
+
+  <footer id="main-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>BookNest</strong>
+        <p>Онлайн-бібліотека для кожного.</p>
+      </div>
+      <div>
+        <strong>Контакти</strong>
+        <p>kireevmaksim322@gmail.com<br>м. Київ, НТУУ «КПІ», ФІОТ</p>
+      </div>
+      <div>
+        <strong>Розділи</strong>
+        <p><a href="#catalog">Каталог</a> · <a href="#rules">Правила</a> · <a href="about.html">Про проєкт</a></p>
+      </div>
+    </div>
+    <p class="copy">© 2026 BookNest. Кірєєв Максим, ІС-44</p>
+  </footer>
 </body>
 </html>

@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Опис предметної галузі — BookNest</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/menu.js" defer></script>
 </head>
 <body>
   <header id="main-header">
-    <h1>BookNest</h1>
-    <nav><a href="index.html">На головну</a></nav>
+    <a class="logo" href="index.html" aria-label="BookNest — на головну">
+      <img src="images/logo.svg" alt="" width="40" height="40">
+      <span>BookNest</span>
+    </a>
+    <button class="burger" id="burger" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="menu" aria-label="Головне меню"><a href="index.html">На головну</a></nav>
   </header>
-  <main>
+  <main class="doc">
     <h2>Опис предметного середовища</h2>
     <p>Предметна галузь — бібліотечна справа. BookNest — онлайн-бібліотека, де читачі шукають книги в каталозі, бронюють їх і читають онлайн, а бібліотекар керує каталогом і видачею.</p>
     <ul>
@@ -36,6 +44,8 @@
       <tr><td>Нефункціональна</td><td>Адаптивний інтерфейс</td></tr>
     </table>
   </main>
-  <footer>© 2026 BookNest. Кірєєв Максим, ІС-44</footer>
+  <footer id="main-footer">
+    <p class="copy">© 2026 BookNest. Кірєєв Максим, ІС-44</p>
+  </footer>
 </body>
 </html>

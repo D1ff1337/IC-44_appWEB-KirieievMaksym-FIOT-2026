@@ -1,0 +1,177 @@
+/* ===== Змінні та базові стилі (rem — відносно розміру шрифту html) ===== */
+:root {
+  --dark: #1f3a5f;
+  --blue: #3f7cac;
+  --accent: #e4572e;
+  --accent-dark: #c4421d;
+  --gold: #f2c14e;
+  --bg: #f4f7fb;
+  --gap: 1.5rem;
+}
+* { box-sizing: border-box; }
+html { font-size: 100%; scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, sans-serif; line-height: 1.5; color: #222; background: var(--bg); }
+h1 { margin: 0; color: #fff; }
+h2 { color: var(--dark); border-bottom: 0.125rem solid var(--blue); }
+a { color: var(--blue); }
+img { max-width: 100%; height: auto; }
+
+/* ===== Шапка: логотип + навігація (flexbox) ===== */
+#main-header {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 0.75rem 1.5rem; padding: 0.75rem 4vw; background: var(--dark);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, .25);
+}
+.logo { display: flex; align-items: center; gap: 0.6rem; font-size: 1.6rem; font-weight: bold; color: #fff; text-decoration: none; }
+.logo img { transition: transform .4s; }
+.logo:hover img { transform: rotate(-10deg) scale(1.1); }
+nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+nav > a {
+  position: relative; padding: 0.25rem 0; color: #fff; text-decoration: none;
+}
+/* підкреслення, що плавно виростає при наведенні */
+nav > a::after {
+  content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 0.125rem;
+  background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .3s;
+}
+nav > a:hover::after, nav > a:focus-visible::after { transform: scaleX(1); }
+
+/* Кнопка «бургер» (на великих екранах прихована) */
+.burger {
+  display: none; width: 2.75rem; height: 2.75rem; padding: 0.6rem;
+  flex-direction: column; justify-content: space-between;
+  background: transparent; border: 0.125rem solid #fff; border-radius: 0.5rem; cursor: pointer;
+}
+.burger span { display: block; height: 0.18rem; background: #fff; border-radius: 0.1rem; transition: transform .3s, opacity .3s; }
+.burger.active span:nth-child(1) { transform: translateY(0.52rem) rotate(45deg); }
+.burger.active span:nth-child(2) { opacity: 0; }
+.burger.active span:nth-child(3) { transform: translateY(-0.52rem) rotate(-45deg); }
+
+/* ===== Основний блок ===== */
+main { max-width: 70rem; width: 100%; margin: 0 auto; padding: 0 4vw 2rem; }
+main.doc { max-width: 56rem; }
+section { margin-top: 2rem; }
+
+#hero { text-align: center; }
+#hero img { width: 100%; max-height: 45vh; object-fit: cover; border-radius: 0.75rem; }
+h2 + p { font-style: italic; }
+
+/* Картки переваг — CSS Grid */
+.features { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+.feature { padding: 1.25rem; text-align: center; background: #fff; border: 0.125rem solid var(--dark); border-radius: 0.75rem; }
+.feature .ico { font-size: 2rem; }
+.feature h3 { margin: 0.5rem 0; color: var(--dark); }
+.feature p { margin: 0; font-size: 0.95rem; }
+
+/* Картки книг — Flexbox із переносом */
+.cards { display: flex; flex-wrap: wrap; gap: var(--gap); }
+.card {
+  flex: 1 1 calc((100% - 2 * var(--gap)) / 3);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  padding: 1.25rem; text-align: center; background: #fff; border-radius: 0.75rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(31, 58, 95, .15);
+  transition: transform .3s, box-shadow .3s;
+}
+.card h3 { margin: 0; color: var(--dark); }
+.card .author { margin: 0; color: #555; }
+.status { padding: 0.2rem 0.8rem; font-size: 0.85rem; color: #fff; border-radius: 1rem; }
+.status.ok { background: #3a9d4d; }
+.status.no { background: var(--accent); }
+
+.two-col { display: flex; flex-wrap: wrap; gap: var(--gap); }
+.two-col > div { flex: 1 1 18rem; }
+
+.btn { padding: 0.6rem 1.5rem; font: inherit; color: #fff; background: var(--accent); border: 0; border-radius: 0.4rem; cursor: pointer; transition: background .3s, transform .2s; }
+.btn:hover { background: var(--accent-dark); }
+.btn:active { transform: scale(.96); }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 0.5rem; border: 1px solid #ccc; }
+th { color: #fff; background: var(--dark); }
+tr:nth-child(even) { background: #eef3f9; }
+ul { list-style-type: square; }
+ul ul { list-style-type: circle; }
+ul ul ul { list-style-type: disc; }
+
+form { display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; max-width: 26rem; }
+label { display: block; width: 100%; margin-top: 0.5rem; }
+input[type="text"], input[type="email"] { width: 100%; padding: 0.5rem; font: inherit; border: 0.125rem solid #ccc; border-radius: 0.3rem; transition: border-color .3s, box-shadow .3s; }
+input[type="text"]:focus, input[type="email"]:focus { outline: 0; border-color: var(--blue); box-shadow: 0 0 0 0.2rem rgba(63, 124, 172, .25); }
+
+/* ===== Підвал ===== */
+#main-footer { margin-top: 2rem; padding: 1.5rem 4vw 1rem; color: #fff; background: var(--dark); }
+.footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--gap); max-width: 70rem; margin: 0 auto; }
+.footer-inner > div { flex: 1 1 14rem; }
+.footer-inner p { margin: 0.25rem 0 0; font-size: 0.9rem; }
+.footer-inner a { color: var(--gold); }
+.copy { margin: 1rem 0 0; text-align: center; font-size: 0.85rem; }
+
+/* ===== Анімації ===== */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(1.5rem); } to { opacity: 1; transform: none; } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-0.75rem); } to { opacity: 1; transform: none; } }
+section { animation: fadeUp .8s ease both; }
+#features { animation-delay: .1s; }
+#catalog { animation-delay: .2s; }
+.feature, .card { animation: fadeUp .8s ease both; }
+.card:nth-child(2), .feature:nth-child(2) { animation-delay: .15s; }
+.card:nth-child(3), .feature:nth-child(3) { animation-delay: .3s; }
+.feature:nth-child(4) { animation-delay: .45s; }
+
+/* ==========================================================
+   МЕДІА-ЗАПИТИ (mobile / tablet / desktop) та логічні оператори
+   ========================================================== */
+
+/* Ефекти наведення лише там, де є «справжній» курсор: and */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover { transform: translateY(-0.5rem); box-shadow: 0 0.75rem 1.5rem rgba(31, 58, 95, .3); }
+  .feature { transition: background .3s, transform .3s; }
+  .feature:hover { background: #fff7e0; transform: scale(1.03); }
+}
+
+/* ПЛАНШЕТ: 601px – 1024px (and — «і») */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  #main-header nav { flex-basis: 100%; justify-content: space-between; }
+  .features { grid-template-columns: repeat(2, 1fr); }
+  .card { flex-basis: calc((100% - var(--gap)) / 2); }
+}
+
+/* МОБІЛЬНИЙ: до 600px — бургер-меню, одна колонка */
+@media screen and (max-width: 600px) {
+  html { font-size: 93.75%; }
+  .burger { display: flex; }
+  #main-header nav {
+    display: none; flex-direction: column; flex-basis: calc(100% + 8vw); gap: 0; margin: 0 -4vw -0.75rem; padding: 0.5rem 4vw 0.75rem;
+    background: #17304f;
+  }
+  #main-header nav.open { display: flex; animation: slideDown .35s ease; }
+  nav > a { padding: 0.75rem 0; border-bottom: 1px solid rgba(255, 255, 255, .15); }
+  .features { grid-template-columns: 1fr; }
+  .card { flex-basis: 100%; }
+  #hero img { max-height: 30vh; }
+}
+
+/* «Або» (кома): дуже вузький екран АБО низький екран у горизонтальній орієнтації */
+@media (max-width: 360px), (orientation: landscape) and (max-height: 420px) {
+  #main-header { position: static; }
+  #hero img { max-height: 60vh; }
+}
+
+/* Горизонтальна орієнтація на планшетах/телефонах */
+@media (orientation: landscape) and (max-width: 900px) {
+  .features { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* not: усі екрани, окрім друку — плавна прокрутка */
+@media not print { html { scroll-behavior: smooth; } }
+
+/* Користувач просить менше анімацій */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Друк */
+@media print {
+  #main-header, .burger { display: none; }
+  body { background: #fff; }
+}
