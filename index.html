@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookNest</title>
+</head>
+<body>
+  <header id="main-header">
+    <h1>BookNest</h1>
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#rules">Як взяти книгу</a>
+      <a href="#register">Реєстрація</a>
+      <a href="about.html">Опис предметної галузі та бізнес-логіки</a>
+    </nav>
+  </header>
+  <main>
+    <section id="hero">
+      <img src="images/hero.svg" alt="Полиця з книгами BookNest" width="900" height="320">
+      <h2>Ласкаво просимо до BookNest</h2>
+      <p>Шукайте, бронюйте та читайте книги онлайн.</p>
+    </section>
+    <section id="catalog">
+      <h2>Популярні книги</h2>
+      <table>
+        <tr><th>Обкладинка</th><th>Назва</th><th>Автор</th><th>Наявність</th></tr>
+        <tr><td><img src="images/book1.svg" alt="Кобзар" width="50"></td><td>Кобзар</td><td>Тарас Шевченко</td><td>Є</td></tr>
+        <tr><td><img src="images/book2.svg" alt="Чистий код" width="50"></td><td>Чистий код</td><td>Роберт Мартін</td><td>Є</td></tr>
+        <tr><td><img src="images/book3.svg" alt="HTML і CSS" width="50"></td><td>HTML і CSS</td><td>Джон Дакетт</td><td>Видана</td></tr>
+      </table>
+    </section>
+    <section id="rules">
+      <h2>Як взяти книгу</h2>
+      <ol>
+        <li>Зареєструйтесь.</li>
+        <li>Знайдіть книгу в каталозі.</li>
+        <li>Забронюйте її.</li>
+      </ol>
+      <h3>Категорії</h3>
+      <ul>
+        <li>Художня література
+          <ul>
+            <li>Класика
+              <ul><li>Українська</li><li>Зарубіжна</li></ul>
+            </li>
+          </ul>
+        </li>
+        <li>IT</li>
+      </ul>
+    </section>
+    <section id="register">
+      <h2>Реєстрація читача</h2>
+      <form action="#" method="post">
+        <label>Ім'я: <input type="text" name="name" required></label>
+        <label>Email: <input type="email" name="email" required></label>
+        <label><input type="checkbox" name="news"> Отримувати новини</label>
+        <button type="submit" class="btn">Зареєструватися</button>
+      </form>
+    </section>
+  </main>
+  <footer>© 2026 BookNest. Кірєєв Максим, ІС-44</footer>
+</body>
+</html>
